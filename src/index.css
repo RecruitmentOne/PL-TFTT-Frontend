@@ -1,0 +1,285 @@
+/* Avenir Next Font Import - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Avenir+Next:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Root CSS Variables - will be overridden by brand system */
+:root {
+	/* Default brand colors (Teams variant) */
+	--brand-primary: #F47E22;
+	--brand-secondary: #22C2EA;
+	--brand-background: #FFFFFF;
+	--brand-surface: #F9FAFB;
+	--brand-text-primary: #111827;
+	--brand-text-secondary: #6B7280;
+	--brand-text-inverse: #FFFFFF;
+	--brand-border: #E5E7EB;
+	--brand-shadow: rgb(0 0 0 / 0.1);
+	
+	/* Typography */
+	--brand-font-primary: "Avenir Next", "Avenir", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+	--brand-font-fallback: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+	
+	/* Spacing */
+	--brand-spacing-xs: 0.25rem;
+	--brand-spacing-sm: 0.5rem;
+	--brand-spacing-md: 1rem;
+	--brand-spacing-lg: 1.5rem;
+	--brand-spacing-xl: 2rem;
+	--brand-spacing-2xl: 3rem;
+	
+	/* Border radius */
+	--brand-radius-sm: 0.25rem;
+	--brand-radius-md: 0.375rem;
+	--brand-radius-lg: 0.5rem;
+	--brand-radius-full: 9999px;
+	
+	/* Shadows */
+	--brand-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	--brand-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--brand-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	--brand-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Base body styles with brand integration */
+	body {
+	background-color: var(--brand-background);
+	color: var(--brand-text-primary);
+	font-family: var(--brand-font-primary);
+		font-feature-settings: "rlig" 1, "calt" 1;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading styles with brand typography */
+h1, h2, h3, h4, h5, h6 {
+	font-family: var(--brand-font-primary);
+	font-weight: 600;
+	line-height: 1.25;
+	color: var(--brand-text-primary);
+}
+
+/* Focus ring styles for accessibility */
+*:focus-visible {
+	outline: 2px solid var(--brand-primary);
+	outline-offset: 2px;
+}
+
+/* Custom scrollbar for brand consistency */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--brand-surface);
+	border-radius: var(--brand-radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--brand-text-secondary);
+	border-radius: var(--brand-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--brand-primary);
+}
+
+/* Brand-aware button classes */
+	.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.375rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	font-family: var(--brand-font-primary);
+	transition: colors 150ms ease;
+	outline: none;
+	border: 2px solid transparent;
+	opacity: 1;
+	cursor: pointer;
+}
+
+.btn:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 2px var(--brand-primary);
+}
+
+.btn:disabled {
+	opacity: 0.5;
+	pointer-events: none;
+	}
+	
+	.btn-primary {
+	height: 2.5rem;
+	padding: 0.5rem 1rem;
+	background-color: var(--brand-primary);
+	color: var(--brand-text-inverse);
+	border-color: var(--brand-primary);
+}
+
+.btn-primary:hover:not(:disabled) {
+	background-color: color-mix(in srgb, var(--brand-primary) 90%, black);
+	border-color: color-mix(in srgb, var(--brand-primary) 90%, black);
+	}
+	
+	.btn-secondary {
+	height: 2.5rem;
+	padding: 0.5rem 1rem;
+	background-color: var(--brand-secondary);
+	color: var(--brand-text-inverse);
+	border-color: var(--brand-secondary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+	background-color: color-mix(in srgb, var(--brand-secondary) 90%, black);
+	border-color: color-mix(in srgb, var(--brand-secondary) 90%, black);
+	}
+	
+	.btn-outline {
+	height: 2.5rem;
+	padding: 0.5rem 1rem;
+	background-color: transparent;
+	color: var(--brand-primary);
+	border-color: var(--brand-primary);
+}
+
+.btn-outline:hover:not(:disabled) {
+	background-color: var(--brand-surface);
+	border-color: color-mix(in srgb, var(--brand-primary) 80%, black);
+}
+
+/* Brand-aware form components */
+.form-input {
+	width: 100%;
+	border-radius: 0.375rem;
+	border: 2px solid var(--brand-border);
+	padding: 0.5rem 0.75rem;
+	font-size: 0.875rem;
+	font-family: var(--brand-font-primary);
+	background-color: var(--brand-background);
+	color: var(--brand-text-primary);
+	transition: colors 150ms ease;
+	outline: none;
+}
+
+.form-input:focus {
+	border-color: var(--brand-primary);
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-primary) 20%, transparent);
+}
+
+.form-input:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+
+.form-input::placeholder {
+	color: var(--brand-text-secondary);
+}
+
+/* Brand-aware card component */
+.card {
+	background-color: var(--brand-background);
+	border: 1px solid var(--brand-border);
+	border-radius: var(--brand-radius-lg);
+	box-shadow: var(--brand-shadow-sm);
+	padding: var(--brand-spacing-lg);
+}
+
+.card-hover {
+	background-color: var(--brand-background);
+	border: 1px solid var(--brand-border);
+	border-radius: var(--brand-radius-lg);
+	box-shadow: var(--brand-shadow-sm);
+	padding: var(--brand-spacing-lg);
+	transition: all 200ms ease;
+	cursor: pointer;
+}
+
+.card-hover:hover {
+	box-shadow: var(--brand-shadow-md);
+	border-color: var(--brand-primary);
+}
+
+/* Navigation styles */
+.nav-link {
+	padding: 0.5rem 0.75rem;
+	border-radius: 0.375rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	font-family: var(--brand-font-primary);
+	color: var(--brand-text-secondary);
+	transition: colors 150ms ease;
+}
+
+.nav-link:hover {
+	color: var(--brand-primary);
+	background-color: var(--brand-surface);
+}
+
+.nav-link.active {
+	color: var(--brand-primary);
+	background-color: color-mix(in srgb, var(--brand-primary) 10%, transparent);
+}
+
+/* Brand-specific utility classes */
+.text-brand-primary { color: var(--brand-primary); }
+.text-brand-secondary { color: var(--brand-secondary); }
+.bg-brand-primary { background-color: var(--brand-primary); }
+.bg-brand-secondary { background-color: var(--brand-secondary); }
+.bg-brand-surface { background-color: var(--brand-surface); }
+.bg-brand-background { background-color: var(--brand-background); }
+.border-brand { border-color: var(--brand-border); }
+.border-brand-primary { border-color: var(--brand-primary); }
+
+/* Font family utilities */
+.font-brand { font-family: var(--brand-font-primary); }
+.font-brand-fallback { font-family: var(--brand-font-fallback); }
+
+/* Shadow utilities */
+.shadow-brand-sm { box-shadow: var(--brand-shadow-sm); }
+.shadow-brand-md { box-shadow: var(--brand-shadow-md); }
+.shadow-brand-lg { box-shadow: var(--brand-shadow-lg); }
+.shadow-brand-xl { box-shadow: var(--brand-shadow-xl); }
+
+/* Line clamp utilities */
+	.line-clamp-2 {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+	
+	.line-clamp-3 {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+}
+
+/* Brand variant specific styles */
+.brand-teams {
+	/* Teams-specific overrides can go here */
+}
+
+.brand-talent {
+	/* Talent-specific overrides can go here */
+}
+
+/* Animation utilities */
+.animate-fade-in {
+	animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+} 
